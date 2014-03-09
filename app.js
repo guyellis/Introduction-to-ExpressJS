@@ -57,7 +57,7 @@ app.get('/tree', function(req,res){
 })
 
 app.post('/tree', function(req,res){
-    data.save(req.body);
+    data.create(req.body);
     res.render('tree');
 })
 

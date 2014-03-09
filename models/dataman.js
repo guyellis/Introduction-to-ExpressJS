@@ -6,7 +6,7 @@ var Orchard = mongoose.model('Tree',
         quantity: Number
     });
 
-exports.save = function(data) {
+exports.create = function(data) {
     mongoose.connect('mongodb://localhost/test');
 
     var orchard = new Orchard(data);
