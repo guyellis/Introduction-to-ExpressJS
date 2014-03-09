@@ -1,15 +1,8 @@
 extends ../layout
 block content
-	h1 Tree Capture
-	form.form-horizontal(action='/data',method='post')
-		.control-group
-			label.control-label(for='inputTree') Tree
-			.controls
-				input(type='text', name='tree', id='inputTree', placeholder='Tree')
-		.control-group
-			label.control-label(for='inputQuantity') Qty
-			.controls
-				input(type='text', name='quantity', id='inputQuantity', placeholder='Quantity')
-		.control-group
-			button.btn(type='submit', name='Save') Save
-
+	h1 Orchard Inventory
+	table
+		each tree in trees
+			tr
+				td tree.type
+				td tree.quantity

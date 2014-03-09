@@ -3,7 +3,7 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
-var data = require('./models/datafetch.js');
+var data = require('./models/dataman.js');
 
 var app = express();
 
@@ -47,13 +47,18 @@ app.get(/^\/range\/(\d+)(?:\.\.(\d+))?$/, function(req, res) {
     res.send('Range: ' + from + ' to ' + to);
 });
 
-app.get('/tree', function(req,res){
+app.get('/tree/create', function(req,res){
     res.render('tree/create');
+})
+
+app.get('/tree', function(req,res){
+    var trees = data.read();
+    res.render('tree', trees);
 })
 
 app.post('/tree', function(req,res){
     data.save(req.body);
-    res.send('Data saved!');
+    res.render('tree');
 })
 
 http.createServer(app).listen(app.get('port'), function(){
