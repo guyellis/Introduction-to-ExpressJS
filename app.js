@@ -12,11 +12,11 @@ app.set('port', 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
 // development only
@@ -58,9 +58,10 @@ app.get('/tree', function(req,res){
 })
 
 app.post('/tree', function(req,res){
-    data.create(req.body);
-    data.read(function(err, trees) {
-        res.render('tree', {trees: trees});
+    data.create(req.body, function(err) {
+        data.read(function(err, trees) {
+            res.render('tree', {trees: trees});
+        });
     });
 })
 
