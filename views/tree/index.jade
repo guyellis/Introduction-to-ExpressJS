@@ -5,11 +5,11 @@ block content
 		tr
 			th Tree Type
 			th Quantity
-		if trees > 0
-			each tree in trees
+		if trees
+			each item in trees
 				tr
-					td tree.type
-					td tree.quantity
+					td #{item.tree}
+					td #{item.quantity}
 		else
 			tr
 				td(colspan=2) No records in database

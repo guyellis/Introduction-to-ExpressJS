@@ -53,15 +53,15 @@ app.get('/tree/create', function(req,res){
 
 app.get('/tree', function(req,res){
     data.read(function(err, trees) {
-        console.log('/tree route');
-        console.dir(trees);
         res.render('tree', {trees: trees});
     });
 })
 
 app.post('/tree', function(req,res){
     data.create(req.body);
-    res.render('tree');
+    data.read(function(err, trees) {
+        res.render('tree', {trees: trees});
+    });
 })
 
 http.createServer(app).listen(app.get('port'), function(){

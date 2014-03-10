@@ -23,13 +23,13 @@ exports.read = function(cb) {
     mongoose.connect('mongodb://localhost/test');
 
     // var orchard = new Orchard();
-    console.log('dataman.js read');
+    //console.log('dataman.js read');
     Orchard.find(function (err, trees) {
-        console.log('read find');
+        //console.log('read find');
         if (err) {
             console.log('error getting trees');
         }
-        console.dir(trees);
+        // console.dir(trees);
         mongoose.connection.close();
         cb(err, trees);
     });
