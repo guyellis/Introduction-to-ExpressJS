@@ -1,32 +1,36 @@
 var mongoose = require('mongoose');
 
-var Orchard = mongoose.model('Tree',
-    {
-        tree: String,
-        quantity: Number
-    });
+var orchardSchema = mongoose.Schema({
+    tree: String,
+    quantity: Number
+});
 
-exports.create = function(data) {
+var Orchard = mongoose.model('Tree', orchardSchema);
+
+exports.create = function(tree) {
     mongoose.connect('mongodb://localhost/test');
 
-    var orchard = new Orchard(data);
+    var orchard = new Orchard(tree);
     orchard.save(function (err) {
         if (err) {
-            console.log('error saving orchard');
+            console.log('error saving tree');
         }
         mongoose.connection.close();
     });
 }
 
-exports.read = function() {
+exports.read = function(cb) {
     mongoose.connect('mongodb://localhost/test');
 
-    var orchard = new Orchard();
-    orchard.find(function (err, data) {
+    // var orchard = new Orchard();
+    console.log('dataman.js read');
+    Orchard.find(function (err, trees) {
+        console.log('read find');
         if (err) {
             console.log('error getting trees');
         }
+        console.dir(trees);
         mongoose.connection.close();
-        return data;
+        cb(err, trees);
     });
 }

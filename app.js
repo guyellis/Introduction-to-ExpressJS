@@ -52,8 +52,11 @@ app.get('/tree/create', function(req,res){
 })
 
 app.get('/tree', function(req,res){
-    var trees = data.read();
-    res.render('tree', trees);
+    data.read(function(err, trees) {
+        console.log('/tree route');
+        console.dir(trees);
+        res.render('tree', {trees: trees});
+    });
 })
 
 app.post('/tree', function(req,res){

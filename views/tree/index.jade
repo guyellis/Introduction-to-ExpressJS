@@ -1,8 +1,18 @@
 extends ../layout
 block content
 	h1 Orchard Inventory
-	table
-		each tree in trees
+	table.table
+		tr
+			th Tree Type
+			th Quantity
+		if trees > 0
+			each tree in trees
+				tr
+					td tree.type
+					td tree.quantity
+		else
 			tr
-				td tree.type
-				td tree.quantity
+				td(colspan=2) No records in database
+
+
+	a(href='/tree/create') Add Tree
