@@ -4,6 +4,7 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var data = require('./models/dataman.js');
+var tree = require('./routes/tree');
 
 var app = express();
 
@@ -47,23 +48,11 @@ app.get(/^\/range\/(\d+)(?:\.\.(\d+))?$/, function(req, res) {
     res.send('Range: ' + from + ' to ' + to);
 });
 
-app.get('/tree/create', function(req,res){
-    res.render('tree/create');
-})
+app.get('/tree/create', tree.create);
 
-app.get('/tree', function(req,res){
-    data.read(function(err, trees) {
-        res.render('tree', {trees: trees});
-    });
-})
+app.get('/tree', tree.index);
 
-app.post('/tree', function(req,res){
-    data.create(req.body, function(err) {
-        data.read(function(err, trees) {
-            res.render('tree', {trees: trees});
-        });
-    });
-})
+app.post('/tree', tree.createTree);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
