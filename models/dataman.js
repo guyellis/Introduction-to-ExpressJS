@@ -42,7 +42,7 @@ exports.create = function(tree,cb) {
     var orchard = new Orchard(tree);
     orchard.save(function (err) {
         if (err) {
-            console.log('error saving tree');
+            console.log('error saving tree: ' + err);
         }
         cb(err);
     });
@@ -51,7 +51,7 @@ exports.create = function(tree,cb) {
 exports.read = function(cb) {
     Orchard.find(function (err, trees) {
         if (err) {
-            console.log('error getting trees');
+            console.log('error getting trees: ' + err);
         }
         // mongoose.connection.close();
         cb(err, trees);
