@@ -37,6 +37,7 @@ app.get('/customer/:id/path/:num', function(req, res){
     res.send('customer is ' + req.params.id +
         ' num is ' + req.params.num);
 });
+
 app.get('/cust', function(req, res){
     res.send('cust is ' + req.query['id'] +
         ' num is ' + req.query['num']);
