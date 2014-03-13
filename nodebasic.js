@@ -5,4 +5,4 @@ http.createServer(function (req, res) {
   res.end('Hello World\n');
 }).listen(3000, '127.0.0.1');
 
-console.log('Server running at http://127.0.0.1:1337/');
+console.log('Basic Node Server running on port 3000');

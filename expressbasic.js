@@ -7,3 +7,5 @@ app.get('/', function(req,res){
 });
 
 app.listen(3000);
+
+console.log('Basic Express Server running on port 3000');
