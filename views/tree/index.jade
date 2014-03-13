@@ -6,6 +6,7 @@ block content
 			th Tree Type
 			th Quantity
 		if trees && trees.length > 0
+			each item in trees
 				tr
 					td #{item.tree}
 					td #{item.quantity}
