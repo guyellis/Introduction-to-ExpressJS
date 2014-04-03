@@ -5,6 +5,7 @@ var http = require('http');
 var path = require('path');
 var data = require('./models/dataman.js');
 var tree = require('./routes/tree');
+var tenbyten = require('./routes/10x10');
 
 var app = express();
 
@@ -54,6 +55,9 @@ app.get('/tree/create', tree.create);
 app.get('/tree', tree.index);
 
 app.post('/tree', tree.createTree);
+
+app.get('/10x10/jade', tenbyten.jade);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

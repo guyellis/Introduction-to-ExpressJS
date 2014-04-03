@@ -1,0 +1,11 @@
+extends ../layout
+block content
+	h1 Ten by Ten
+	table.table
+		- for ( var row=0; row<10; row++)
+			tr
+				- for(var col=0; col<10; col++)
+					- if(row === 0)
+						th #{col}
+					- else
+						td #{row.toString() + col}
