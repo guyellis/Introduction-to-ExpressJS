@@ -1,7 +1,10 @@
 extends ../layout
+block header
+	style.
+		body {font-size: 30px;}
+		th,td {text-align: right;}
 block content
-	h1 Ten by Ten
-	table.table
+	table.table.table-bordered
 		- for ( var row=0; row<10; row++)
 			tr
 				- for(var col=0; col<10; col++)
