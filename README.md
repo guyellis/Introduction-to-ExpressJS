@@ -1,9 +1,11 @@
 Introduction to ExpressJS
 =========================
 
-Code sample for Fluent 2014 Introduction to ExpressJS presentation
+Code sample for Introduction to ExpressJS presentation
 
-Related blog post: http://x.co/fluent2014
+Related blog posts:
+http://x.co/fluent2014
+http://x.co/dcc2014
 
 Prerequisites
 =============
