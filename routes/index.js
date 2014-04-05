@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Fluent 2014 - Introduction to ExpressJS' });
+  res.render('index', { title: 'ExpressJS and MongoDB' });
 };
