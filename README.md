@@ -1,6 +1,8 @@
 Introduction to ExpressJS
 =========================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/guyellis/Introduction-to-ExpressJS.svg)](https://greenkeeper.io/)
+
 Code sample for Introduction to ExpressJS presentation
 
 Related blog posts:  
